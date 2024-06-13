@@ -1,0 +1,21 @@
+{
+  "name": "vite-plugin-build-zip",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsup src/index.ts --dts --format cjs,esm"
+  },
+  "author": "janus-c",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.14.2",
+    "fs": "0.0.1-security",
+    "tsup": "^8.1.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "vite": "^5.2.13"
+  }
+}
