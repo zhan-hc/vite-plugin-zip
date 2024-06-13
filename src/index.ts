@@ -1,8 +1,7 @@
 import fs from 'node:fs';
 import path from 'path';
 import archiver from 'archiver'; 
-import { Plugin } from 'vite'
-export default function zipPlugin ({ outputPath = '', zipName = ''} = {}): Plugin {
+export default function zipPlugin ({ outputPath = '', zipName = ''} = {}) {
   return {
     name: 'vite:zip',
     configResolved(resolvedConfig) {
