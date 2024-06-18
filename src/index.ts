@@ -2,12 +2,15 @@ import fs from 'node:fs';
 import path from 'path';
 import archiver from 'archiver'; 
 export default function zipPlugin ({ outputPath = '', zipName = ''} = {}) {
+  let pkgPath, distPath
   return {
     name: 'vite:zip',
     configResolved(resolvedConfig) {
       const projectPath = resolvedConfig.root
-      const pkgPath = path.resolve(projectPath, 'package.json');  
-      const distPath = outputPath || path.resolve(projectPath, resolvedConfig.build.outDir);
+      pkgPath = path.resolve(projectPath, 'package.json');  
+      distPath = outputPath || path.resolve(projectPath, resolvedConfig.build.outDir);
+    },
+    writeBundle() {
       const pkgContent = fs.readFileSync(pkgPath, 'utf8'); 
       const {name = 'dist'} = JSON.parse(pkgContent);
 
