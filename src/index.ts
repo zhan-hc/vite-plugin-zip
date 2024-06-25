@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'path';
 import archiver from 'archiver'; 
-export default function zipPlugin ({ outputPath = '', zipName = ''} = {}) {
+export default function zipPlugin ({ outputPath = '', zipName = '', withoutMainFolder = false } = {}) {
   let pkgPath, distPath
   return {
     name: 'vite:zip',
@@ -24,7 +24,7 @@ export default function zipPlugin ({ outputPath = '', zipName = ''} = {}) {
       });
       archive.pipe(output);
       // 打包 dist 目录
-      archive.directory('./dist', false);
+      archive.directory('./dist', withoutMainFolder ? false : name);
       // 完成打包
       archive.finalize();
     }

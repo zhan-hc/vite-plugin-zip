@@ -14,6 +14,7 @@ yarn add vite-plugin-build-zip -D
 
 `outputPath` 代表打包输出的路径，默认值为build.outDir值，一般为dist
 `zipName` 压缩的名称 默认为package.json的name值
+`withoutMainFolder` 压缩后的文件是否去除外层文件夹 默认为false
 
 ## 使用方法
 
